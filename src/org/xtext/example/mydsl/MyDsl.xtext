@@ -1,0 +1,75 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+/*
+Addition:
+    'Sum' '{' elements+=SumElement ('+' elements+=SumElement)* '}';
+
+SumElement:
+    value=INT;
+
+Greeting:
+    'Hello' name=ID '!';
+    
+Loop_rule: 'on' Array Action Saut Tab;
+
+Action:
+	'apply' | 'fetch' | 'Analyze'
+;
+
+Array:
+	( 'instances' | 'rules' | 'repos' | 'patterns' ) '{' Array+=ArrayElement (',' Array+=ArrayElement)* '}'
+;
+
+ArrayElement:
+	value=STRING
+;
+
+Saut: '\n';
+
+Tab: '\t';
+*/
+
+
+Model:
+    loops+=loop;/*arrays+=array*;*/
+
+loop: 'on' loop_array+=array do;
+
+do : apply;
+
+apply : 'apply' action;
+
+action: '\t';
+
+array: targets+=target array_names+=VALID_ID '{' Array+=arrayElement (',' Array+=arrayElement)* '}\n';
+
+arrayElement: value=STRING;
+
+target: 
+	(Instance | Repo | Project | File)
+;
+
+Instance: 'instance';
+Repo: 'repo';
+Project: 'project';
+File: 'file';
+
+terminal VALID_ID:
+    ('_' | LETTER) (LETTER | DIGIT | '_')*;
+
+terminal LETTER:
+    ('a'..'z' | 'A'..'Z');
+
+terminal DIGIT:
+    '0'..'9';
+
+linespace: '\t';
+
+linejump: '\n'
+
+
+
+
+    

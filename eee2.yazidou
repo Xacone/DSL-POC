@@ -1,0 +1,6 @@
+instance yazid { "docker1", 'docker2', "docker3" }
+repo git_repos {"git1", "git2", "git3"}
+project projects_yazid {"C:\\Proj\\1", "C:\\Proj\\2", "/home/yazid/proj12"}
+file single_file {"le_fichier_de_confiuguration_bizzare.tf"}
+
+
