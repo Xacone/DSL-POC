@@ -81,14 +81,34 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseidentify(identify object)
+      {
+        return createidentifyAdapter();
+      }
+      @Override
+      public Adapter caseloop(loop object)
+      {
+        return createloopAdapter();
+      }
+      @Override
       public Adapter casearray(array object)
       {
         return createarrayAdapter();
       }
       @Override
+      public Adapter casearray_content(array_content object)
+      {
+        return createarray_contentAdapter();
+      }
+      @Override
       public Adapter casearrayElement(arrayElement object)
       {
         return createarrayElementAdapter();
+      }
+      @Override
+      public Adapter caseapi_token(api_token object)
+      {
+        return createapi_tokenAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -128,6 +148,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.identify <em>identify</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.identify
+   * @generated
+   */
+  public Adapter createidentifyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.loop <em>loop</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.loop
+   * @generated
+   */
+  public Adapter createloopAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.array <em>array</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -143,6 +193,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.array_content <em>array content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.array_content
+   * @generated
+   */
+  public Adapter createarray_contentAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.arrayElement <em>array Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -153,6 +218,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createarrayElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.api_token <em>api token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.api_token
+   * @generated
+   */
+  public Adapter createapi_tokenAdapter()
   {
     return null;
   }

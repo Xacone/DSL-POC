@@ -68,13 +68,40 @@ public interface MyDslPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__TOKENS = 0;
+
+  /**
    * The feature id for the '<em><b>Arrays</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ARRAYS = 0;
+  int MODEL__ARRAYS = 1;
+
+  /**
+   * The feature id for the '<em><b>Loops</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__LOOPS = 2;
+
+  /**
+   * The feature id for the '<em><b>Identifications</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IDENTIFICATIONS = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -83,7 +110,63 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.identifyImpl <em>identify</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.identifyImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getidentify()
+   * @generated
+   */
+  int IDENTIFY = 1;
+
+  /**
+   * The feature id for the '<em><b>Identify array</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFY__IDENTIFY_ARRAY = 0;
+
+  /**
+   * The number of structural features of the '<em>identify</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.loopImpl <em>loop</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.loopImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getloop()
+   * @generated
+   */
+  int LOOP = 2;
+
+  /**
+   * The feature id for the '<em><b>Loop array</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOOP__LOOP_ARRAY = 0;
+
+  /**
+   * The number of structural features of the '<em>loop</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOOP_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl <em>array</em>}' class.
@@ -93,7 +176,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarray()
    * @generated
    */
-  int ARRAY = 1;
+  int ARRAY = 3;
 
   /**
    * The feature id for the '<em><b>Targets</b></em>' attribute list.
@@ -114,13 +197,13 @@ public interface MyDslPackage extends EPackage
   int ARRAY__ARRAY_NAMES = 1;
 
   /**
-   * The feature id for the '<em><b>Array</b></em>' containment reference list.
+   * The feature id for the '<em><b>Array contents</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY__ARRAY = 2;
+  int ARRAY__ARRAY_CONTENTS = 2;
 
   /**
    * The number of structural features of the '<em>array</em>' class.
@@ -132,6 +215,34 @@ public interface MyDslPackage extends EPackage
   int ARRAY_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.array_contentImpl <em>array content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.array_contentImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarray_content()
+   * @generated
+   */
+  int ARRAY_CONTENT = 4;
+
+  /**
+   * The feature id for the '<em><b>Array</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CONTENT__ARRAY = 0;
+
+  /**
+   * The number of structural features of the '<em>array content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CONTENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayElementImpl <em>array Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,7 +250,16 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarrayElement()
    * @generated
    */
-  int ARRAY_ELEMENT = 2;
+  int ARRAY_ELEMENT = 5;
+
+  /**
+   * The feature id for the '<em><b>Identify array</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ELEMENT__IDENTIFY_ARRAY = IDENTIFY__IDENTIFY_ARRAY;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -148,7 +268,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_ELEMENT__VALUE = 0;
+  int ARRAY_ELEMENT__VALUE = IDENTIFY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>array Element</em>' class.
@@ -157,7 +277,44 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_ELEMENT_FEATURE_COUNT = 1;
+  int ARRAY_ELEMENT_FEATURE_COUNT = IDENTIFY_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.api_tokenImpl <em>api token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.api_tokenImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getapi_token()
+   * @generated
+   */
+  int API_TOKEN = 6;
+
+  /**
+   * The feature id for the '<em><b>Nom token</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int API_TOKEN__NOM_TOKEN = 0;
+
+  /**
+   * The feature id for the '<em><b>Token</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int API_TOKEN__TOKEN = 1;
+
+  /**
+   * The number of structural features of the '<em>api token</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int API_TOKEN_FEATURE_COUNT = 2;
 
 
   /**
@@ -171,6 +328,17 @@ public interface MyDslPackage extends EPackage
   EClass getModel();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getTokens <em>Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tokens</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Model#getTokens()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Tokens();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getArrays <em>Arrays</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -180,6 +348,70 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getModel_Arrays();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getLoops <em>Loops</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Loops</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Model#getLoops()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Loops();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getIdentifications <em>Identifications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Identifications</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Model#getIdentifications()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Identifications();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.identify <em>identify</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>identify</em>'.
+   * @see org.xtext.example.mydsl.myDsl.identify
+   * @generated
+   */
+  EClass getidentify();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.identify#getIdentify_array <em>Identify array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Identify array</em>'.
+   * @see org.xtext.example.mydsl.myDsl.identify#getIdentify_array()
+   * @see #getidentify()
+   * @generated
+   */
+  EReference getidentify_Identify_array();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.loop <em>loop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>loop</em>'.
+   * @see org.xtext.example.mydsl.myDsl.loop
+   * @generated
+   */
+  EClass getloop();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.loop#getLoop_array <em>Loop array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Loop array</em>'.
+   * @see org.xtext.example.mydsl.myDsl.loop#getLoop_array()
+   * @see #getloop()
+   * @generated
+   */
+  EReference getloop_Loop_array();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.array <em>array</em>}'.
@@ -214,15 +446,36 @@ public interface MyDslPackage extends EPackage
   EAttribute getarray_Array_names();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.array#getArray <em>Array</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.array#getArray_contents <em>Array contents</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Array</em>'.
-   * @see org.xtext.example.mydsl.myDsl.array#getArray()
+   * @return the meta object for the containment reference list '<em>Array contents</em>'.
+   * @see org.xtext.example.mydsl.myDsl.array#getArray_contents()
    * @see #getarray()
    * @generated
    */
-  EReference getarray_Array();
+  EReference getarray_Array_contents();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.array_content <em>array content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>array content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.array_content
+   * @generated
+   */
+  EClass getarray_content();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.array_content#getArray <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Array</em>'.
+   * @see org.xtext.example.mydsl.myDsl.array_content#getArray()
+   * @see #getarray_content()
+   * @generated
+   */
+  EReference getarray_content_Array();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.arrayElement <em>array Element</em>}'.
@@ -244,6 +497,38 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getarrayElement_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.api_token <em>api token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>api token</em>'.
+   * @see org.xtext.example.mydsl.myDsl.api_token
+   * @generated
+   */
+  EClass getapi_token();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.api_token#getNom_token <em>Nom token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nom token</em>'.
+   * @see org.xtext.example.mydsl.myDsl.api_token#getNom_token()
+   * @see #getapi_token()
+   * @generated
+   */
+  EAttribute getapi_token_Nom_token();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.api_token#getToken <em>Token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Token</em>'.
+   * @see org.xtext.example.mydsl.myDsl.api_token#getToken()
+   * @see #getapi_token()
+   * @generated
+   */
+  EAttribute getapi_token_Token();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -279,12 +564,72 @@ public interface MyDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Tokens</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__TOKENS = eINSTANCE.getModel_Tokens();
+
+    /**
      * The meta object literal for the '<em><b>Arrays</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__ARRAYS = eINSTANCE.getModel_Arrays();
+
+    /**
+     * The meta object literal for the '<em><b>Loops</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__LOOPS = eINSTANCE.getModel_Loops();
+
+    /**
+     * The meta object literal for the '<em><b>Identifications</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__IDENTIFICATIONS = eINSTANCE.getModel_Identifications();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.identifyImpl <em>identify</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.identifyImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getidentify()
+     * @generated
+     */
+    EClass IDENTIFY = eINSTANCE.getidentify();
+
+    /**
+     * The meta object literal for the '<em><b>Identify array</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IDENTIFY__IDENTIFY_ARRAY = eINSTANCE.getidentify_Identify_array();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.loopImpl <em>loop</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.loopImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getloop()
+     * @generated
+     */
+    EClass LOOP = eINSTANCE.getloop();
+
+    /**
+     * The meta object literal for the '<em><b>Loop array</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOOP__LOOP_ARRAY = eINSTANCE.getloop_Loop_array();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl <em>array</em>}' class.
@@ -313,12 +658,30 @@ public interface MyDslPackage extends EPackage
     EAttribute ARRAY__ARRAY_NAMES = eINSTANCE.getarray_Array_names();
 
     /**
+     * The meta object literal for the '<em><b>Array contents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY__ARRAY_CONTENTS = eINSTANCE.getarray_Array_contents();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.array_contentImpl <em>array content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.array_contentImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarray_content()
+     * @generated
+     */
+    EClass ARRAY_CONTENT = eINSTANCE.getarray_content();
+
+    /**
      * The meta object literal for the '<em><b>Array</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ARRAY__ARRAY = eINSTANCE.getarray_Array();
+    EReference ARRAY_CONTENT__ARRAY = eINSTANCE.getarray_content_Array();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayElementImpl <em>array Element</em>}' class.
@@ -337,6 +700,32 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute ARRAY_ELEMENT__VALUE = eINSTANCE.getarrayElement_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.api_tokenImpl <em>api token</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.api_tokenImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getapi_token()
+     * @generated
+     */
+    EClass API_TOKEN = eINSTANCE.getapi_token();
+
+    /**
+     * The meta object literal for the '<em><b>Nom token</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute API_TOKEN__NOM_TOKEN = eINSTANCE.getapi_token_Nom_token();
+
+    /**
+     * The meta object literal for the '<em><b>Token</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute API_TOKEN__TOKEN = eINSTANCE.getapi_token_Token();
 
   }
 

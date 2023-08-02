@@ -33,7 +33,9 @@ Tab: '\t';
 
 
 Model:
-    loops+=loop;/*arrays+=array*;*/
+     (tokens+=api_token | arrays+=array | loops+=loop | identifications+=identify)*;	/*arrays+=array*;*/
+
+identify : 'identify' (identify_array+=array_content | arrayElement) (',' identify_array+=array_content)*;
 
 loop: 'on' loop_array+=array do;
 
@@ -41,9 +43,11 @@ do : apply;
 
 apply : 'apply' action;
 
-action: '\t';
+action: linespace ;
 
-array: targets+=target array_names+=VALID_ID '{' Array+=arrayElement (',' Array+=arrayElement)* '}\n';
+array: targets+=target array_names+=VALID_ID array_contents+=array_content'\n';
+
+array_content: '{' Array+=arrayElement (',' Array+=arrayElement)* '}';
 
 arrayElement: value=STRING;
 
@@ -56,6 +60,8 @@ Repo: 'repo';
 Project: 'project';
 File: 'file';
 
+api_token: 'token ' nom_token=VALID_ID token=STRING (linejump)*;
+
 terminal VALID_ID:
     ('_' | LETTER) (LETTER | DIGIT | '_')*;
 
@@ -67,7 +73,7 @@ terminal DIGIT:
 
 linespace: '\t';
 
-linejump: '\n'
+linejump: '\n';
 
 
 

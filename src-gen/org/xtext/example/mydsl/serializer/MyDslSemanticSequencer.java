@@ -16,8 +16,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.api_token;
 import org.xtext.example.mydsl.myDsl.array;
 import org.xtext.example.mydsl.myDsl.arrayElement;
+import org.xtext.example.mydsl.myDsl.array_content;
+import org.xtext.example.mydsl.myDsl.identify;
+import org.xtext.example.mydsl.myDsl.loop;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -37,11 +41,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case MyDslPackage.API_TOKEN:
+				sequence_api_token(context, (api_token) semanticObject); 
+				return; 
 			case MyDslPackage.ARRAY:
 				sequence_array(context, (array) semanticObject); 
 				return; 
 			case MyDslPackage.ARRAY_ELEMENT:
-				sequence_arrayElement(context, (arrayElement) semanticObject); 
+				if (rule == grammarAccess.getArrayElementRule()) {
+					sequence_arrayElement(context, (arrayElement) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getIdentifyRule()) {
+					sequence_arrayElement_identify(context, (arrayElement) semanticObject); 
+					return; 
+				}
+				else break;
+			case MyDslPackage.ARRAY_CONTENT:
+				sequence_array_content(context, (array_content) semanticObject); 
+				return; 
+			case MyDslPackage.IDENTIFY:
+				sequence_identify(context, (identify) semanticObject); 
+				return; 
+			case MyDslPackage.LOOP:
+				sequence_loop(context, (loop) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -54,11 +77,34 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     arrays+=array+
+	 *     (tokens+=api_token | arrays+=array | loops+=loop | identifications+=identify)+
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     api_token returns api_token
+	 *
+	 * Constraint:
+	 *     (nom_token=VALID_ID token=STRING)
+	 * </pre>
+	 */
+	protected void sequence_api_token(ISerializationContext context, api_token semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.API_TOKEN__NOM_TOKEN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.API_TOKEN__NOM_TOKEN));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.API_TOKEN__TOKEN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.API_TOKEN__TOKEN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getApi_tokenAccess().getNom_tokenVALID_IDTerminalRuleCall_1_0(), semanticObject.getNom_token());
+		feeder.accept(grammarAccess.getApi_tokenAccess().getTokenSTRINGTerminalRuleCall_2_0(), semanticObject.getToken());
+		feeder.finish();
 	}
 	
 	
@@ -85,13 +131,69 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     identify returns arrayElement
+	 *
+	 * Constraint:
+	 *     (value=STRING identify_array+=array_content*)
+	 * </pre>
+	 */
+	protected void sequence_arrayElement_identify(ISerializationContext context, arrayElement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     array returns array
 	 *
 	 * Constraint:
-	 *     (targets+=target array_names+=VALID_ID Array+=arrayElement Array+=arrayElement*)
+	 *     (targets+=target array_names+=VALID_ID array_contents+=array_content)
 	 * </pre>
 	 */
 	protected void sequence_array(ISerializationContext context, array semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     array_content returns array_content
+	 *
+	 * Constraint:
+	 *     (Array+=arrayElement Array+=arrayElement*)
+	 * </pre>
+	 */
+	protected void sequence_array_content(ISerializationContext context, array_content semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     identify returns identify
+	 *
+	 * Constraint:
+	 *     (identify_array+=array_content identify_array+=array_content*)
+	 * </pre>
+	 */
+	protected void sequence_identify(ISerializationContext context, identify semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     loop returns loop
+	 *
+	 * Constraint:
+	 *     loop_array+=array
+	 * </pre>
+	 */
+	protected void sequence_loop(ISerializationContext context, loop semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -33,6 +33,24 @@ public interface MyDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>identify</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>identify</em>'.
+   * @generated
+   */
+  identify createidentify();
+
+  /**
+   * Returns a new object of class '<em>loop</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>loop</em>'.
+   * @generated
+   */
+  loop createloop();
+
+  /**
    * Returns a new object of class '<em>array</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,6 +60,15 @@ public interface MyDslFactory extends EFactory
   array createarray();
 
   /**
+   * Returns a new object of class '<em>array content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>array content</em>'.
+   * @generated
+   */
+  array_content createarray_content();
+
+  /**
    * Returns a new object of class '<em>array Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +76,15 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   arrayElement createarrayElement();
+
+  /**
+   * Returns a new object of class '<em>api token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>api token</em>'.
+   * @generated
+   */
+  api_token createapi_token();
 
   /**
    * Returns the package supported by this factory.

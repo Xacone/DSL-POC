@@ -2,7 +2,21 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myDsl" nsURI="http://www.xtext.org/example/mydsl/MyDsl" nsPrefix="myDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="-1"
+        eType="#//api_token" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arrays" upperBound="-1"
+        eType="#//array" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loops" upperBound="-1"
+        eType="#//loop" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifications" upperBound="-1"
+        eType="#//identify" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="identify">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identify_array" upperBound="-1"
+        eType="#//array_content" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="loop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loop_array" upperBound="-1"
         eType="#//array" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="array">
@@ -10,10 +24,18 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="array_names" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array_contents" upperBound="-1"
+        eType="#//array_content" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="array_content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Array" upperBound="-1"
         eType="#//arrayElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="arrayElement">
+  <eClassifiers xsi:type="ecore:EClass" name="arrayElement" eSuperTypes="#//identify">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="api_token">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom_token" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="token" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

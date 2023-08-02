@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.array#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.array#getArray_names <em>Array names</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.array#getArray <em>Array</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.array#getArray_contents <em>Array contents</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getarray()
@@ -52,15 +52,15 @@ public interface array extends EObject
   EList<String> getArray_names();
 
   /**
-   * Returns the value of the '<em><b>Array</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.arrayElement}.
+   * Returns the value of the '<em><b>Array contents</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.array_content}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Array</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getarray_Array()
+   * @return the value of the '<em>Array contents</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getarray_Array_contents()
    * @model containment="true"
    * @generated
    */
-  EList<arrayElement> getArray();
+  EList<array_content> getArray_contents();
 
 } // array

@@ -16,7 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getTokens <em>Tokens</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getArrays <em>Arrays</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getLoops <em>Loops</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getIdentifications <em>Identifications</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel()
@@ -25,6 +28,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.api_token}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tokens</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Tokens()
+   * @model containment="true"
+   * @generated
+   */
+  EList<api_token> getTokens();
+
   /**
    * Returns the value of the '<em><b>Arrays</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.myDsl.array}.
@@ -36,5 +51,29 @@ public interface Model extends EObject
    * @generated
    */
   EList<array> getArrays();
+
+  /**
+   * Returns the value of the '<em><b>Loops</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.loop}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Loops</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Loops()
+   * @model containment="true"
+   * @generated
+   */
+  EList<loop> getLoops();
+
+  /**
+   * Returns the value of the '<em><b>Identifications</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.identify}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifications</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Identifications()
+   * @model containment="true"
+   * @generated
+   */
+  EList<identify> getIdentifications();
 
 } // Model

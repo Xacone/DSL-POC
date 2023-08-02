@@ -7,15 +7,31 @@
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="yazidou" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/arrays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/loops"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/identifications"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//identify">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//identify/identify_array"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//loop/loop_array"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//array">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//array/targets"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//array/array_names"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//array/Array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//array/array_contents"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//array_content">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//array_content/Array"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//arrayElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//arrayElement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//api_token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//api_token/nom_token"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//api_token/token"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

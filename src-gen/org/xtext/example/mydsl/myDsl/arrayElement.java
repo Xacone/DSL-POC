@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface arrayElement extends EObject
+public interface arrayElement extends identify
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

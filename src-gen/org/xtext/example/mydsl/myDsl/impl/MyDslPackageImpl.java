@@ -13,8 +13,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.api_token;
 import org.xtext.example.mydsl.myDsl.array;
 import org.xtext.example.mydsl.myDsl.arrayElement;
+import org.xtext.example.mydsl.myDsl.array_content;
+import org.xtext.example.mydsl.myDsl.identify;
+import org.xtext.example.mydsl.myDsl.loop;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +40,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass identifyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass loopEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass arrayEClass = null;
 
   /**
@@ -43,7 +61,21 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass array_contentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass arrayElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass api_tokenEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -124,9 +156,86 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getModel_Arrays()
+  public EReference getModel_Tokens()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Arrays()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Loops()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Identifications()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getidentify()
+  {
+    return identifyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getidentify_Identify_array()
+  {
+    return (EReference)identifyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getloop()
+  {
+    return loopEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getloop_Loop_array()
+  {
+    return (EReference)loopEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -168,9 +277,31 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getarray_Array()
+  public EReference getarray_Array_contents()
   {
     return (EReference)arrayEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getarray_content()
+  {
+    return array_contentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getarray_content_Array()
+  {
+    return (EReference)array_contentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -193,6 +324,39 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EAttribute getarrayElement_Value()
   {
     return (EAttribute)arrayElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getapi_token()
+  {
+    return api_tokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getapi_token_Nom_token()
+  {
+    return (EAttribute)api_tokenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getapi_token_Token()
+  {
+    return (EAttribute)api_tokenEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -227,15 +391,31 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__TOKENS);
     createEReference(modelEClass, MODEL__ARRAYS);
+    createEReference(modelEClass, MODEL__LOOPS);
+    createEReference(modelEClass, MODEL__IDENTIFICATIONS);
+
+    identifyEClass = createEClass(IDENTIFY);
+    createEReference(identifyEClass, IDENTIFY__IDENTIFY_ARRAY);
+
+    loopEClass = createEClass(LOOP);
+    createEReference(loopEClass, LOOP__LOOP_ARRAY);
 
     arrayEClass = createEClass(ARRAY);
     createEAttribute(arrayEClass, ARRAY__TARGETS);
     createEAttribute(arrayEClass, ARRAY__ARRAY_NAMES);
-    createEReference(arrayEClass, ARRAY__ARRAY);
+    createEReference(arrayEClass, ARRAY__ARRAY_CONTENTS);
+
+    array_contentEClass = createEClass(ARRAY_CONTENT);
+    createEReference(array_contentEClass, ARRAY_CONTENT__ARRAY);
 
     arrayElementEClass = createEClass(ARRAY_ELEMENT);
     createEAttribute(arrayElementEClass, ARRAY_ELEMENT__VALUE);
+
+    api_tokenEClass = createEClass(API_TOKEN);
+    createEAttribute(api_tokenEClass, API_TOKEN__NOM_TOKEN);
+    createEAttribute(api_tokenEClass, API_TOKEN__TOKEN);
   }
 
   /**
@@ -267,18 +447,35 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    arrayElementEClass.getESuperTypes().add(this.getidentify());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Tokens(), this.getapi_token(), null, "tokens", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Arrays(), this.getarray(), null, "arrays", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Loops(), this.getloop(), null, "loops", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Identifications(), this.getidentify(), null, "identifications", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(identifyEClass, identify.class, "identify", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getidentify_Identify_array(), this.getarray_content(), null, "identify_array", null, 0, -1, identify.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(loopEClass, loop.class, "loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getloop_Loop_array(), this.getarray(), null, "loop_array", null, 0, -1, loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayEClass, array.class, "array", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getarray_Targets(), ecorePackage.getEString(), "targets", null, 0, -1, array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getarray_Array_names(), ecorePackage.getEString(), "array_names", null, 0, -1, array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getarray_Array(), this.getarrayElement(), null, "Array", null, 0, -1, array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getarray_Array_contents(), this.getarray_content(), null, "array_contents", null, 0, -1, array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(array_contentEClass, array_content.class, "array_content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getarray_content_Array(), this.getarrayElement(), null, "Array", null, 0, -1, array_content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayElementEClass, arrayElement.class, "arrayElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getarrayElement_Value(), ecorePackage.getEString(), "value", null, 0, 1, arrayElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(api_tokenEClass, api_token.class, "api_token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getapi_token_Nom_token(), ecorePackage.getEString(), "nom_token", null, 0, 1, api_token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getapi_token_Token(), ecorePackage.getEString(), "token", null, 0, 1, api_token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

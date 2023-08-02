@@ -10,6 +10,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -18,17 +20,40 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_api_token_LinejumpParserRuleCall_3_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
+		match_api_token_LinejumpParserRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getApi_tokenAccess().getLinejumpParserRuleCall_3());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getDoRule())
+			return getdoToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getLinejumpRule())
+			return getlinejumpToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * do : apply;
+	 */
+	protected String getdoToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "apply \t";
+	}
+	
+	/**
+	 * linejump: '\n';
+	 */
+	protected String getlinejumpToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -36,8 +61,24 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_api_token_LinejumpParserRuleCall_3_a.equals(syntax))
+				emit_api_token_LinejumpParserRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     linejump*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     token=STRING (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_api_token_LinejumpParserRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

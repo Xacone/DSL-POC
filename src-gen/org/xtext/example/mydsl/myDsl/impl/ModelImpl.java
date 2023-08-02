@@ -19,7 +19,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.api_token;
 import org.xtext.example.mydsl.myDsl.array;
+import org.xtext.example.mydsl.myDsl.identify;
+import org.xtext.example.mydsl.myDsl.loop;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,13 +32,26 @@ import org.xtext.example.mydsl.myDsl.array;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getTokens <em>Tokens</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getArrays <em>Arrays</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getLoops <em>Loops</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getIdentifications <em>Identifications</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTokens()
+   * @generated
+   * @ordered
+   */
+  protected EList<api_token> tokens;
+
   /**
    * The cached value of the '{@link #getArrays() <em>Arrays</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -45,6 +61,26 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<array> arrays;
+
+  /**
+   * The cached value of the '{@link #getLoops() <em>Loops</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLoops()
+   * @generated
+   * @ordered
+   */
+  protected EList<loop> loops;
+
+  /**
+   * The cached value of the '{@link #getIdentifications() <em>Identifications</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifications()
+   * @generated
+   * @ordered
+   */
+  protected EList<identify> identifications;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,6 +109,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<api_token> getTokens()
+  {
+    if (tokens == null)
+    {
+      tokens = new EObjectContainmentEList<api_token>(api_token.class, this, MyDslPackage.MODEL__TOKENS);
+    }
+    return tokens;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<array> getArrays()
   {
     if (arrays == null)
@@ -88,12 +139,48 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<loop> getLoops()
+  {
+    if (loops == null)
+    {
+      loops = new EObjectContainmentEList<loop>(loop.class, this, MyDslPackage.MODEL__LOOPS);
+    }
+    return loops;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<identify> getIdentifications()
+  {
+    if (identifications == null)
+    {
+      identifications = new EObjectContainmentEList<identify>(identify.class, this, MyDslPackage.MODEL__IDENTIFICATIONS);
+    }
+    return identifications;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case MyDslPackage.MODEL__TOKENS:
+        return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
       case MyDslPackage.MODEL__ARRAYS:
         return ((InternalEList<?>)getArrays()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.MODEL__LOOPS:
+        return ((InternalEList<?>)getLoops()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.MODEL__IDENTIFICATIONS:
+        return ((InternalEList<?>)getIdentifications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +195,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case MyDslPackage.MODEL__TOKENS:
+        return getTokens();
       case MyDslPackage.MODEL__ARRAYS:
         return getArrays();
+      case MyDslPackage.MODEL__LOOPS:
+        return getLoops();
+      case MyDslPackage.MODEL__IDENTIFICATIONS:
+        return getIdentifications();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +218,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case MyDslPackage.MODEL__TOKENS:
+        getTokens().clear();
+        getTokens().addAll((Collection<? extends api_token>)newValue);
+        return;
       case MyDslPackage.MODEL__ARRAYS:
         getArrays().clear();
         getArrays().addAll((Collection<? extends array>)newValue);
+        return;
+      case MyDslPackage.MODEL__LOOPS:
+        getLoops().clear();
+        getLoops().addAll((Collection<? extends loop>)newValue);
+        return;
+      case MyDslPackage.MODEL__IDENTIFICATIONS:
+        getIdentifications().clear();
+        getIdentifications().addAll((Collection<? extends identify>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +248,17 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case MyDslPackage.MODEL__TOKENS:
+        getTokens().clear();
+        return;
       case MyDslPackage.MODEL__ARRAYS:
         getArrays().clear();
+        return;
+      case MyDslPackage.MODEL__LOOPS:
+        getLoops().clear();
+        return;
+      case MyDslPackage.MODEL__IDENTIFICATIONS:
+        getIdentifications().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +274,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case MyDslPackage.MODEL__TOKENS:
+        return tokens != null && !tokens.isEmpty();
       case MyDslPackage.MODEL__ARRAYS:
         return arrays != null && !arrays.isEmpty();
+      case MyDslPackage.MODEL__LOOPS:
+        return loops != null && !loops.isEmpty();
+      case MyDslPackage.MODEL__IDENTIFICATIONS:
+        return identifications != null && !identifications.isEmpty();
     }
     return super.eIsSet(featureID);
   }

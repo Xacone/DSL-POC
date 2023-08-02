@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.arrayElement;
@@ -26,7 +25,7 @@ import org.xtext.example.mydsl.myDsl.arrayElement;
  *
  * @generated
  */
-public class arrayElementImpl extends MinimalEObjectImpl.Container implements arrayElement
+public class arrayElementImpl extends identifyImpl implements arrayElement
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -66,8 +66,12 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.MODEL: return createModel();
+      case MyDslPackage.IDENTIFY: return createidentify();
+      case MyDslPackage.LOOP: return createloop();
       case MyDslPackage.ARRAY: return createarray();
+      case MyDslPackage.ARRAY_CONTENT: return createarray_content();
       case MyDslPackage.ARRAY_ELEMENT: return createarrayElement();
+      case MyDslPackage.API_TOKEN: return createapi_token();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -91,6 +95,30 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public identify createidentify()
+  {
+    identifyImpl identify = new identifyImpl();
+    return identify;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public loop createloop()
+  {
+    loopImpl loop = new loopImpl();
+    return loop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public array createarray()
   {
     arrayImpl array = new arrayImpl();
@@ -103,10 +131,34 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public array_content createarray_content()
+  {
+    array_contentImpl array_content = new array_contentImpl();
+    return array_content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public arrayElement createarrayElement()
   {
     arrayElementImpl arrayElement = new arrayElementImpl();
     return arrayElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public api_token createapi_token()
+  {
+    api_tokenImpl api_token = new api_tokenImpl();
+    return api_token;
   }
 
   /**

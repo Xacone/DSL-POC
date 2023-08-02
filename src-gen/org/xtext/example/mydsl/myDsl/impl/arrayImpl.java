@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.array;
-import org.xtext.example.mydsl.myDsl.arrayElement;
+import org.xtext.example.mydsl.myDsl.array_content;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import org.xtext.example.mydsl.myDsl.arrayElement;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl#getArray_names <em>Array names</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl#getArray <em>Array</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl#getArray_contents <em>Array contents</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,14 +60,14 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
   protected EList<String> array_names;
 
   /**
-   * The cached value of the '{@link #getArray() <em>Array</em>}' containment reference list.
+   * The cached value of the '{@link #getArray_contents() <em>Array contents</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArray()
+   * @see #getArray_contents()
    * @generated
    * @ordered
    */
-  protected EList<arrayElement> array;
+  protected EList<array_content> array_contents;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,13 +126,13 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
    * @generated
    */
   @Override
-  public EList<arrayElement> getArray()
+  public EList<array_content> getArray_contents()
   {
-    if (array == null)
+    if (array_contents == null)
     {
-      array = new EObjectContainmentEList<arrayElement>(arrayElement.class, this, MyDslPackage.ARRAY__ARRAY);
+      array_contents = new EObjectContainmentEList<array_content>(array_content.class, this, MyDslPackage.ARRAY__ARRAY_CONTENTS);
     }
-    return array;
+    return array_contents;
   }
 
   /**
@@ -145,8 +145,8 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY__ARRAY:
-        return ((InternalEList<?>)getArray()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.ARRAY__ARRAY_CONTENTS:
+        return ((InternalEList<?>)getArray_contents()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -165,8 +165,8 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
         return getTargets();
       case MyDslPackage.ARRAY__ARRAY_NAMES:
         return getArray_names();
-      case MyDslPackage.ARRAY__ARRAY:
-        return getArray();
+      case MyDslPackage.ARRAY__ARRAY_CONTENTS:
+        return getArray_contents();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -190,9 +190,9 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
         getArray_names().clear();
         getArray_names().addAll((Collection<? extends String>)newValue);
         return;
-      case MyDslPackage.ARRAY__ARRAY:
-        getArray().clear();
-        getArray().addAll((Collection<? extends arrayElement>)newValue);
+      case MyDslPackage.ARRAY__ARRAY_CONTENTS:
+        getArray_contents().clear();
+        getArray_contents().addAll((Collection<? extends array_content>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,8 +214,8 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
       case MyDslPackage.ARRAY__ARRAY_NAMES:
         getArray_names().clear();
         return;
-      case MyDslPackage.ARRAY__ARRAY:
-        getArray().clear();
+      case MyDslPackage.ARRAY__ARRAY_CONTENTS:
+        getArray_contents().clear();
         return;
     }
     super.eUnset(featureID);
@@ -235,8 +235,8 @@ public class arrayImpl extends MinimalEObjectImpl.Container implements array
         return targets != null && !targets.isEmpty();
       case MyDslPackage.ARRAY__ARRAY_NAMES:
         return array_names != null && !array_names.isEmpty();
-      case MyDslPackage.ARRAY__ARRAY:
-        return array != null && !array.isEmpty();
+      case MyDslPackage.ARRAY__ARRAY_CONTENTS:
+        return array_contents != null && !array_contents.isEmpty();
     }
     return super.eIsSet(featureID);
   }

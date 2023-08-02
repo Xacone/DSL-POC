@@ -80,6 +80,20 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.IDENTIFY:
+      {
+        identify identify = (identify)theEObject;
+        T result = caseidentify(identify);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LOOP:
+      {
+        loop loop = (loop)theEObject;
+        T result = caseloop(loop);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.ARRAY:
       {
         array array = (array)theEObject;
@@ -87,10 +101,25 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.ARRAY_CONTENT:
+      {
+        array_content array_content = (array_content)theEObject;
+        T result = casearray_content(array_content);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.ARRAY_ELEMENT:
       {
         arrayElement arrayElement = (arrayElement)theEObject;
         T result = casearrayElement(arrayElement);
+        if (result == null) result = caseidentify(arrayElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.API_TOKEN:
+      {
+        api_token api_token = (api_token)theEObject;
+        T result = caseapi_token(api_token);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,6 +144,38 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>identify</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>identify</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseidentify(identify object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>loop</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>loop</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseloop(loop object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>array</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -131,6 +192,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>array content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>array content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casearray_content(array_content object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>array Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -142,6 +219,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T casearrayElement(arrayElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>api token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>api token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseapi_token(api_token object)
   {
     return null;
   }
