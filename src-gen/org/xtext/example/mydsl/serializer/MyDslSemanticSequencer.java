@@ -21,7 +21,6 @@ import org.xtext.example.mydsl.myDsl.array;
 import org.xtext.example.mydsl.myDsl.arrayElement;
 import org.xtext.example.mydsl.myDsl.array_content;
 import org.xtext.example.mydsl.myDsl.identify;
-import org.xtext.example.mydsl.myDsl.loop;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -62,9 +61,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.IDENTIFY:
 				sequence_identify(context, (identify) semanticObject); 
-				return; 
-			case MyDslPackage.LOOP:
-				sequence_loop(context, (loop) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -180,20 +176,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * </pre>
 	 */
 	protected void sequence_identify(ISerializationContext context, identify semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     loop returns loop
-	 *
-	 * Constraint:
-	 *     loop_array+=array
-	 * </pre>
-	 */
-	protected void sequence_loop(ISerializationContext context, loop semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

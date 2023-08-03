@@ -30,20 +30,9 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getDoRule())
-			return getdoToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getLinejumpRule())
+		if (ruleCall.getRule() == grammarAccess.getLinejumpRule())
 			return getlinejumpToken(semanticObject, ruleCall, node);
 		return "";
-	}
-	
-	/**
-	 * do : apply;
-	 */
-	protected String getdoToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "apply \t";
 	}
 	
 	/**

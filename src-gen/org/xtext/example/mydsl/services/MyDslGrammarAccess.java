@@ -34,26 +34,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cIdentificationsAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
 		private final RuleCall cIdentificationsIdentifyParserRuleCall_3_0 = (RuleCall)cIdentificationsAssignment_3.eContents().get(0);
 		
-		///*
-		//Addition:
-		//    'Sum' '{' elements+=SumElement ('+' elements+=SumElement)* '}';
-		//SumElement:
-		//    value=INT;
-		//Greeting:
-		//    'Hello' name=ID '!';
-		//Loop_rule: 'on' Array Action Saut Tab;
-		//Action:
-		//    'apply' | 'fetch' | 'Analyze'
-		//;
-		//Array:
-		//    ( 'instances' | 'rules' | 'repos' | 'patterns' ) '{' Array+=ArrayElement (',' Array+=ArrayElement)* '}'
-		//;
-		//ArrayElement:
-		//    value=STRING
-		//;
-		//Saut: '\n';
-		//Tab: '\t';
-		//*/
 		//Model:
 		//     (tokens+=api_token | arrays+=array | loops+=loop | identifications+=identify)*;
 		@Override public ParserRule getRule() { return rule; }
@@ -136,27 +116,31 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.loop");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOnKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLoop_arrayAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLoop_arrayArrayParserRuleCall_1_0 = (RuleCall)cLoop_arrayAssignment_1.eContents().get(0);
+		private final RuleCall cVALID_IDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cDoParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cLinejumpParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cLinespaceParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
-		//loop: 'on' loop_array+=array do;
+		//loop: 'on' VALID_ID do linejump linespace;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'on' loop_array+=array do
+		//'on' VALID_ID do linejump linespace
 		public Group getGroup() { return cGroup; }
 		
 		//'on'
 		public Keyword getOnKeyword_0() { return cOnKeyword_0; }
 		
-		//loop_array+=array
-		public Assignment getLoop_arrayAssignment_1() { return cLoop_arrayAssignment_1; }
-		
-		//array
-		public RuleCall getLoop_arrayArrayParserRuleCall_1_0() { return cLoop_arrayArrayParserRuleCall_1_0; }
+		//VALID_ID
+		public RuleCall getVALID_IDTerminalRuleCall_1() { return cVALID_IDTerminalRuleCall_1; }
 		
 		//do
 		public RuleCall getDoParserRuleCall_2() { return cDoParserRuleCall_2; }
+		
+		//linejump
+		public RuleCall getLinejumpParserRuleCall_3() { return cLinejumpParserRuleCall_3; }
+		
+		//linespace
+		public RuleCall getLinespaceParserRuleCall_4() { return cLinespaceParserRuleCall_4; }
 	}
 	public class DoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.do");
@@ -188,13 +172,29 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class ActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.action");
-		private final RuleCall cLinespaceParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cScanKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cReportKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final RuleCall cLinejumpParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//action: linespace ;
+		//action: ('scan' | 'report') linejump;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//linespace
-		public RuleCall getLinespaceParserRuleCall() { return cLinespaceParserRuleCall; }
+		//('scan' | 'report') linejump
+		public Group getGroup() { return cGroup; }
+		
+		//('scan' | 'report')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'scan'
+		public Keyword getScanKeyword_0_0() { return cScanKeyword_0_0; }
+		
+		//'report'
+		public Keyword getReportKeyword_0_1() { return cReportKeyword_0_1; }
+		
+		//linejump
+		public RuleCall getLinejumpParserRuleCall_1() { return cLinejumpParserRuleCall_1; }
 	}
 	public class ArrayElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.array");
@@ -493,26 +493,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 
 	
-	///*
-	//Addition:
-	//    'Sum' '{' elements+=SumElement ('+' elements+=SumElement)* '}';
-	//SumElement:
-	//    value=INT;
-	//Greeting:
-	//    'Hello' name=ID '!';
-	//Loop_rule: 'on' Array Action Saut Tab;
-	//Action:
-	//    'apply' | 'fetch' | 'Analyze'
-	//;
-	//Array:
-	//    ( 'instances' | 'rules' | 'repos' | 'patterns' ) '{' Array+=ArrayElement (',' Array+=ArrayElement)* '}'
-	//;
-	//ArrayElement:
-	//    value=STRING
-	//;
-	//Saut: '\n';
-	//Tab: '\t';
-	//*/
 	//Model:
 	//     (tokens+=api_token | arrays+=array | loops+=loop | identifications+=identify)*;
 	public ModelElements getModelAccess() {
@@ -533,7 +513,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getIdentifyAccess().getRule();
 	}
 	
-	//loop: 'on' loop_array+=array do;
+	//loop: 'on' VALID_ID do linejump linespace;
 	public LoopElements getLoopAccess() {
 		return pLoop;
 	}
@@ -560,7 +540,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getApplyAccess().getRule();
 	}
 	
-	//action: linespace ;
+	//action: ('scan' | 'report') linejump;
 	public ActionElements getActionAccess() {
 		return pAction;
 	}

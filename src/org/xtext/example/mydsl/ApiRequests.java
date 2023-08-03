@@ -33,6 +33,14 @@ public class ApiRequests {
 		add("mvnw");
 	}};
 	
+	ArrayList<String> python_files_req = new ArrayList<String>() {{
+		add("requirements.txt");
+	}};
+
+	ArrayList<String> npm_packages_files = new ArrayList<String>() {{
+		add("package.json");
+	}};
+	
     public void arbreRecursif(String link, String root, String indent) throws IOException {
     	
     	JSONArray repo_content = new JSONArray(root);
@@ -54,7 +62,11 @@ public class ApiRequests {
     		} else if(docker_files.contains(name)) {
     			System.out.println("\u001B[44m" + indent + "📄 " + name + " -> Docker 🐋\u001B[0m");
     		} else if(maven_files.contains(name)) {
-    			System.out.println("\u001B[42m" + indent + "📄 " + name + " -> Maven 🪶\u001B[0m");
+    			System.out.println("\u001B[44m" + indent + "📄 " + name + " -> Maven 🪶\u001B[0m");
+    		} else if(python_files_req.contains(name)) {
+    			System.out.println("\u001B[44m" + indent + "📄 " + name + " -> Python packages 🐍\u001B[0m");
+    		} else if(npm_packages_files.contains(name)) {
+    			System.out.println("\u001B[44m" + indent + "📄 " + name + " -> NPM packages 🇳🅿️Ⓜ️\u001B[0m");
     		} else {
     			System.out.println("\u001B[40m" + indent + "📄 " + name + "\u001B[0m");
     		}	

@@ -2,48 +2,18 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
-/*
-Addition:
-    'Sum' '{' elements+=SumElement ('+' elements+=SumElement)* '}';
-
-SumElement:
-    value=INT;
-
-Greeting:
-    'Hello' name=ID '!';
-    
-Loop_rule: 'on' Array Action Saut Tab;
-
-Action:
-	'apply' | 'fetch' | 'Analyze'
-;
-
-Array:
-	( 'instances' | 'rules' | 'repos' | 'patterns' ) '{' Array+=ArrayElement (',' Array+=ArrayElement)* '}'
-;
-
-ArrayElement:
-	value=STRING
-;
-
-Saut: '\n';
-
-Tab: '\t';
-*/
-
-
 Model:
      (tokens+=api_token | arrays+=array | loops+=loop | identifications+=identify)*;	/*arrays+=array*;*/
 
 identify : 'identify' (identify_array+=array_content | arrayElement) (',' identify_array+=array_content)*;
 
-loop: 'on' loop_array+=array do;
+loop: 'on' VALID_ID do linejump linespace;
 
 do : apply;
 
 apply : 'apply' action;
 
-action: linespace ;
+action: ('scan' | 'report') linejump;
 
 array: targets+=target array_names+=VALID_ID array_contents+=array_content'\n';
 

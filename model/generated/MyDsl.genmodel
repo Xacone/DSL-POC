@@ -9,14 +9,11 @@
     <genClasses ecoreClass="MyDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/arrays"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/loops"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Model/loops"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/identifications"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//identify">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//identify/identify_array"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//loop">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//loop/loop_array"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//array">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//array/targets"/>

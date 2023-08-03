@@ -87,13 +87,6 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.LOOP:
-      {
-        loop loop = (loop)theEObject;
-        T result = caseloop(loop);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.ARRAY:
       {
         array array = (array)theEObject;
@@ -155,22 +148,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseidentify(identify object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>loop</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>loop</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseloop(loop object)
   {
     return null;
   }

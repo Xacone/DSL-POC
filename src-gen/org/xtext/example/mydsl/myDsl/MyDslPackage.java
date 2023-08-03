@@ -86,7 +86,7 @@ public interface MyDslPackage extends EPackage
   int MODEL__ARRAYS = 1;
 
   /**
-   * The feature id for the '<em><b>Loops</b></em>' containment reference list.
+   * The feature id for the '<em><b>Loops</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -141,34 +141,6 @@ public interface MyDslPackage extends EPackage
   int IDENTIFY_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.loopImpl <em>loop</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.loopImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getloop()
-   * @generated
-   */
-  int LOOP = 2;
-
-  /**
-   * The feature id for the '<em><b>Loop array</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOOP__LOOP_ARRAY = 0;
-
-  /**
-   * The number of structural features of the '<em>loop</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOOP_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl <em>array</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,7 +148,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarray()
    * @generated
    */
-  int ARRAY = 3;
+  int ARRAY = 2;
 
   /**
    * The feature id for the '<em><b>Targets</b></em>' attribute list.
@@ -222,7 +194,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarray_content()
    * @generated
    */
-  int ARRAY_CONTENT = 4;
+  int ARRAY_CONTENT = 3;
 
   /**
    * The feature id for the '<em><b>Array</b></em>' containment reference list.
@@ -250,7 +222,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getarrayElement()
    * @generated
    */
-  int ARRAY_ELEMENT = 5;
+  int ARRAY_ELEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Identify array</b></em>' containment reference list.
@@ -287,7 +259,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getapi_token()
    * @generated
    */
-  int API_TOKEN = 6;
+  int API_TOKEN = 5;
 
   /**
    * The feature id for the '<em><b>Nom token</b></em>' attribute.
@@ -350,15 +322,15 @@ public interface MyDslPackage extends EPackage
   EReference getModel_Arrays();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getLoops <em>Loops</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Model#getLoops <em>Loops</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Loops</em>'.
+   * @return the meta object for the attribute list '<em>Loops</em>'.
    * @see org.xtext.example.mydsl.myDsl.Model#getLoops()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Loops();
+  EAttribute getModel_Loops();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getIdentifications <em>Identifications</em>}'.
@@ -391,27 +363,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getidentify_Identify_array();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.loop <em>loop</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>loop</em>'.
-   * @see org.xtext.example.mydsl.myDsl.loop
-   * @generated
-   */
-  EClass getloop();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.loop#getLoop_array <em>Loop array</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Loop array</em>'.
-   * @see org.xtext.example.mydsl.myDsl.loop#getLoop_array()
-   * @see #getloop()
-   * @generated
-   */
-  EReference getloop_Loop_array();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.array <em>array</em>}'.
@@ -580,12 +531,12 @@ public interface MyDslPackage extends EPackage
     EReference MODEL__ARRAYS = eINSTANCE.getModel_Arrays();
 
     /**
-     * The meta object literal for the '<em><b>Loops</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Loops</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__LOOPS = eINSTANCE.getModel_Loops();
+    EAttribute MODEL__LOOPS = eINSTANCE.getModel_Loops();
 
     /**
      * The meta object literal for the '<em><b>Identifications</b></em>' containment reference list feature.
@@ -612,24 +563,6 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference IDENTIFY__IDENTIFY_ARRAY = eINSTANCE.getidentify_Identify_array();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.loopImpl <em>loop</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.loopImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getloop()
-     * @generated
-     */
-    EClass LOOP = eINSTANCE.getloop();
-
-    /**
-     * The meta object literal for the '<em><b>Loop array</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOOP__LOOP_ARRAY = eINSTANCE.getloop_Loop_array();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.arrayImpl <em>array</em>}' class.

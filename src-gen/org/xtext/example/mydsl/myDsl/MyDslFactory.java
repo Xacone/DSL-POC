@@ -42,15 +42,6 @@ public interface MyDslFactory extends EFactory
   identify createidentify();
 
   /**
-   * Returns a new object of class '<em>loop</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>loop</em>'.
-   * @generated
-   */
-  loop createloop();
-
-  /**
    * Returns a new object of class '<em>array</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

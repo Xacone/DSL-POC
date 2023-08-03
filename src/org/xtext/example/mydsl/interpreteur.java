@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import com.google.inject.Injector;
 
 import org.xtext.example.mydsl.MyDslStandaloneSetup;
 import org.xtext.example.mydsl.myDsl.arrayElement;
+import org.xtext.example.mydsl.myDsl.identify;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.api_token;
@@ -36,7 +38,12 @@ public class interpreteur {
 
 	private static ApiRequests apiRequests = new ApiRequests();
 	private static HashMap<String, String> tokens = new HashMap<String, String>();
-	
+	private static HashMap<String, ArrayList<String>> identifications = new HashMap<String, ArrayList<String>>();
+	private static HashMap<String, ArrayList<String>> target_instances = new HashMap<String, ArrayList<String>>();
+	private static HashMap<String, ArrayList<String>> target_repo = new HashMap<String, ArrayList<String>>();
+	private static HashMap<String, ArrayList<String>> target_project = new HashMap<String, ArrayList<String>>();
+	private static HashMap<String, ArrayList<String>> target_file = new HashMap<String, ArrayList<String>>();
+
 	public static void main(String[] args) throws IOException {
 		
 		HashMap<String, EList<arrayElement>> arrays = new HashMap<String, EList<arrayElement>>();
@@ -53,81 +60,64 @@ public class interpreteur {
         
         Model model = (Model) xtextResource.getContents().get(0);
         EList<api_token> api_tokens = model.getTokens();
+        EList<identify> identifications = model.getIdentifications();
+
+        for(int i = 0 ; i < model.getArrays().size() ; i++) {
+        	String target = model.getArrays().get(i).getTargets().get(0);
+        	String array_name = model.getArrays().get(i).getArray_names().get(0);
+        	
+        	System.out.println("name: " + array_name + "  |  type: " + target);
+			ArrayList<String> arrayElements = new ArrayList<String>();
+        	for(int j = 0 ; j < model.getArrays().get(i).getArray_contents().size() ; j++) {
+        		for(int k = 0 ; k < model.getArrays().get(i).getArray_contents().get(j).getArray().size() ; k++) {
+        			arrayElements.add(model.getArrays().get(i).getArray_contents().get(j).getArray().get(k).getValue());
+        		}
+        	}
+        	
+        	if(target.equals("instance")) {
+         		target_instances.put(array_name, arrayElements);
+                
+        	} else if(target.equals("repo")) {
+        		target_repo.put(array_name, arrayElements);
+
+        	} else if(target.equals("project")) {
+        		target_project.put(array_name, arrayElements);
+
+        	} else if(target.equals("file")) {
+        		target_file.put(array_name, arrayElements);
+        	}
+        }
         
         for(int i = 0 ; i < api_tokens.size() ; i++) {
         	tokens.put(api_tokens.get(i).getNom_token(), api_tokens.get(i).getToken());
-        	System.out.println( api_tokens.get(i).getToken());
+        	System.out.println(api_tokens.get(i).getToken());
         }
         
-        String token = tokens.get("token_yazid");
+        for (String name : target_repo.keySet()) {
+            ArrayList<String> bouh = target_repo.get(name);
+            System.out.println(name + ": " + bouh);
+        }
         
-        String target = "https://api.github.com/repos/ESIR2-PROJET-KEOLIS/processing-storage-unit";
+        // Et ensuite chaque token doit être précédé par un "with token"
+        String token = tokens.get("token_yazid"); // !!!!!!!!!!
+        String repo_name = "https://github.com/Xacone/DE_MALWARE_DATA_ANALYSER";
+        String[] splited_repo_name = repo_name.split("/");
+        String repo_name_formated_for_api = "https://api.github.com/repos/" + splited_repo_name[3] + "/" + splited_repo_name[4];
         
-        String target_languages = target + "/languages";
-        String target_contents = target + "/contents";
+        System.out.println(repo_name_formated_for_api);
         
-        String gitRepoLanguages = apiRequests.response(target_languages, token);
+        String target_languages = repo_name_formated_for_api + "/languages";
+        String target_contents = repo_name_formated_for_api + "/contents";
         
-        String gitRepoFirstContent = apiRequests.response(target_contents, token);
+        String gitApiRequestRepoLanguages = apiRequests.response(target_languages, token);
+        String gitApiRequestRepoFirstContent = apiRequests.response(target_contents, token);
                 
-        apiRequests.arbreRecursif(target_contents, gitRepoFirstContent, "");
+        // apiRequests.arbreRecursif(target_contents, gitApiRequestRepoFirstContent, "");
         
-        JSONObject json_gitRepoFirstContent = new JSONObject(gitRepoLanguages);        
-        
-        System.out.println(token);
-        
-        System.out.println(gitRepoLanguages);
-    
-        
-        /*
-        for(int i = 0 ; i < model.getArrays().size() ; i++) {
-        	String var_name = model.getArrays().get(i).getArray_names().get(0);
-        	EList<arrayElement> associated_array = model.getArrays().get(i).getArray();
-        	arrays.put(var_name, associated_array);
-        	
-        	System.out.println(model.getArrays().get(i).getArray_names().get(0));
-        	for(int j = 0 ; j < model.getArrays().get(i).getArray().size() ; j++) {
-        		System.out.print(model.getArrays().get(i).getArray().get(j).getValue() + ", ");
-        	}
-        	
-        	System.out.print("\n\n");
-        }*/ 
-        
-        
-        /*
-        if (model.getGreetings().size() > 0) {
-            for (EObject greeting : model.getGreetings()) {
-                System.out.println("bwahahahhaha hahahahah hahaha " + ((Greeting) greeting).getName() + " hahaha hahahahahah!");
-            }
-        }
-      
-        for(Addition addition : model.getAdditions()) {
-        	int result = 0;
-        	for(SumElement element : addition.getElements()) {
-        		result += element.getValue();
-        	}
-        	System.out.println("Somme = " + result);
-        }
-        */
-
-	        /*
-	        if (model.getGreetings().size() > 0) {
-	            // Interpréter les salutations
-	            for (Greeting greeting : model.getGreetings()) {
-	                System.out.println("Hello " + greeting.getName() + "!");
-	            }
-	        } else if (model.getSum() != null) {
-	            // Effectuer le calcul de somme
-	            int result = calculateSum(model.getSum());
-	            System.out.println("Le résultat de la somme est : " + result);
-	        } else if (model.getDouleur() != null) {
-	            // Traiter la douleur
-	            String name = model.getDouleur().getName();
-	            System.out.println("Douleur de " + name);
-	        } else {
-	            System.out.println("Aucune instruction valide trouvée dans le fichier.");
-	        }
-	     	*/
+        // https://api.github.com/repos/ESIR2-PROJET-KEOLIS/processing-storage-unit/languages
+        		
+        JSONObject json_gitRepoFirstContent = new JSONObject(gitApiRequestRepoLanguages);        
+       
 	}
 	
 	

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -22,7 +23,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.api_token;
 import org.xtext.example.mydsl.myDsl.array;
 import org.xtext.example.mydsl.myDsl.identify;
-import org.xtext.example.mydsl.myDsl.loop;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,14 +63,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<array> arrays;
 
   /**
-   * The cached value of the '{@link #getLoops() <em>Loops</em>}' containment reference list.
+   * The cached value of the '{@link #getLoops() <em>Loops</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLoops()
    * @generated
    * @ordered
    */
-  protected EList<loop> loops;
+  protected EList<String> loops;
 
   /**
    * The cached value of the '{@link #getIdentifications() <em>Identifications</em>}' containment reference list.
@@ -139,11 +139,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<loop> getLoops()
+  public EList<String> getLoops()
   {
     if (loops == null)
     {
-      loops = new EObjectContainmentEList<loop>(loop.class, this, MyDslPackage.MODEL__LOOPS);
+      loops = new EDataTypeEList<String>(String.class, this, MyDslPackage.MODEL__LOOPS);
     }
     return loops;
   }
@@ -177,8 +177,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
       case MyDslPackage.MODEL__ARRAYS:
         return ((InternalEList<?>)getArrays()).basicRemove(otherEnd, msgs);
-      case MyDslPackage.MODEL__LOOPS:
-        return ((InternalEList<?>)getLoops()).basicRemove(otherEnd, msgs);
       case MyDslPackage.MODEL__IDENTIFICATIONS:
         return ((InternalEList<?>)getIdentifications()).basicRemove(otherEnd, msgs);
     }
@@ -228,7 +226,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return;
       case MyDslPackage.MODEL__LOOPS:
         getLoops().clear();
-        getLoops().addAll((Collection<? extends loop>)newValue);
+        getLoops().addAll((Collection<? extends String>)newValue);
         return;
       case MyDslPackage.MODEL__IDENTIFICATIONS:
         getIdentifications().clear();
@@ -284,6 +282,23 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return identifications != null && !identifications.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (loops: ");
+    result.append(loops);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

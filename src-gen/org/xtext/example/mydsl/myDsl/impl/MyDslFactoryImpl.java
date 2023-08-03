@@ -67,7 +67,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     {
       case MyDslPackage.MODEL: return createModel();
       case MyDslPackage.IDENTIFY: return createidentify();
-      case MyDslPackage.LOOP: return createloop();
       case MyDslPackage.ARRAY: return createarray();
       case MyDslPackage.ARRAY_CONTENT: return createarray_content();
       case MyDslPackage.ARRAY_ELEMENT: return createarrayElement();
@@ -99,18 +98,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     identifyImpl identify = new identifyImpl();
     return identify;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public loop createloop()
-  {
-    loopImpl loop = new loopImpl();
-    return loop;
   }
 
   /**

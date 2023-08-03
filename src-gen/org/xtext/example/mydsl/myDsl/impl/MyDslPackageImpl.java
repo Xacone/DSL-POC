@@ -18,7 +18,6 @@ import org.xtext.example.mydsl.myDsl.array;
 import org.xtext.example.mydsl.myDsl.arrayElement;
 import org.xtext.example.mydsl.myDsl.array_content;
 import org.xtext.example.mydsl.myDsl.identify;
-import org.xtext.example.mydsl.myDsl.loop;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,13 +40,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass identifyEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass loopEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -178,9 +170,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getModel_Loops()
+  public EAttribute getModel_Loops()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -214,28 +206,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EReference getidentify_Identify_array()
   {
     return (EReference)identifyEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getloop()
-  {
-    return loopEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getloop_Loop_array()
-  {
-    return (EReference)loopEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -393,14 +363,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__TOKENS);
     createEReference(modelEClass, MODEL__ARRAYS);
-    createEReference(modelEClass, MODEL__LOOPS);
+    createEAttribute(modelEClass, MODEL__LOOPS);
     createEReference(modelEClass, MODEL__IDENTIFICATIONS);
 
     identifyEClass = createEClass(IDENTIFY);
     createEReference(identifyEClass, IDENTIFY__IDENTIFY_ARRAY);
-
-    loopEClass = createEClass(LOOP);
-    createEReference(loopEClass, LOOP__LOOP_ARRAY);
 
     arrayEClass = createEClass(ARRAY);
     createEAttribute(arrayEClass, ARRAY__TARGETS);
@@ -453,14 +420,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Tokens(), this.getapi_token(), null, "tokens", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Arrays(), this.getarray(), null, "arrays", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Loops(), this.getloop(), null, "loops", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_Loops(), ecorePackage.getEString(), "loops", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Identifications(), this.getidentify(), null, "identifications", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(identifyEClass, identify.class, "identify", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getidentify_Identify_array(), this.getarray_content(), null, "identify_array", null, 0, -1, identify.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(loopEClass, loop.class, "loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getloop_Loop_array(), this.getarray(), null, "loop_array", null, 0, -1, loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayEClass, array.class, "array", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getarray_Targets(), ecorePackage.getEString(), "targets", null, 0, -1, array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

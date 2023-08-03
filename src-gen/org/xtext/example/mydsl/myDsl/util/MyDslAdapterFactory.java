@@ -86,11 +86,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createidentifyAdapter();
       }
       @Override
-      public Adapter caseloop(loop object)
-      {
-        return createloopAdapter();
-      }
-      @Override
       public Adapter casearray(array object)
       {
         return createarrayAdapter();
@@ -158,21 +153,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createidentifyAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.loop <em>loop</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.loop
-   * @generated
-   */
-  public Adapter createloopAdapter()
   {
     return null;
   }
