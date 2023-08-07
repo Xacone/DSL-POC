@@ -76,8 +76,7 @@ public class interpreteur {
         	
         	if(target.equals("instance")) {
          		target_instances.put(array_name, arrayElements);
-                
-        	} else if(target.equals("repo")) {
+            } else if(target.equals("repo")) {
         		target_repo.put(array_name, arrayElements);
 
         	} else if(target.equals("project")) {
@@ -99,7 +98,14 @@ public class interpreteur {
         }
         
         // Et ensuite chaque token doit être précédé par un "with token"
-        String token = tokens.get("token_yazid"); // !!!!!!!!!!
+        String token = tokens.get("token_yazid"); // TOKEN FIXE 
+        
+        /*
+        for (int i = 0 ; i < model.getLoops().size(); i++) {
+        	System.out.println(model.getLoops().get(i));
+        }
+        s*/
+        
         String repo_name = "https://github.com/Xacone/DE_MALWARE_DATA_ANALYSER";
         String[] splited_repo_name = repo_name.split("/");
         String repo_name_formated_for_api = "https://api.github.com/repos/" + splited_repo_name[3] + "/" + splited_repo_name[4];
@@ -112,13 +118,10 @@ public class interpreteur {
         String gitApiRequestRepoLanguages = apiRequests.response(target_languages, token);
         String gitApiRequestRepoFirstContent = apiRequests.response(target_contents, token);
                 
-        // apiRequests.arbreRecursif(target_contents, gitApiRequestRepoFirstContent, "");
+        //apiRequests.arbreRecursif(target_contents, gitApiRequestRepoFirstContent, "");
         
         // https://api.github.com/repos/ESIR2-PROJET-KEOLIS/processing-storage-unit/languages
         		
-        JSONObject json_gitRepoFirstContent = new JSONObject(gitApiRequestRepoLanguages);        
-       
-	}
-	
-	
+        JSONObject json_gitRepoFirstContent = new JSONObject(gitApiRequestRepoLanguages);          
+    }
 }

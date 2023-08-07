@@ -1,7 +1,6 @@
-token token_yazid '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'
+token token_yazid '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'
 
 instance mes_instances_docker { "docker1", 'docker2', "docker3" }
 repo mes_depots_github {"https://github.com/ESIR2-PROJET-KEOLIS/processing-storage-unit", "https://github.com/Xacone/AMSI-DLL-Injection", "https://github.com/Xacone/DE_MALWARE_DATA_ANALYSER"}
 project projects_yazid {"C:\\Proj\\1", "C:\\Proj\\2", "/home/yazid/proj12"}
 file single_file {"le_fichier_de_confiuguration_bizzare.tf"}
-

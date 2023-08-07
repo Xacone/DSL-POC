@@ -7,13 +7,13 @@ Model:
 
 identify : 'identify' (identify_array+=array_content | arrayElement) (',' identify_array+=array_content)*;
 
-loop: 'on' VALID_ID do linejump linespace;
+loop: 'on' loop_targets+=VALID_ID do;
 
 do : apply;
 
 apply : 'apply' action;
 
-action: ('scan' | 'report') linejump;
+action: ('scan' | 'report');
 
 array: targets+=target array_names+=VALID_ID array_contents+=array_content'\n';
 
